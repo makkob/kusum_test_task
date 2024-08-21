@@ -26,10 +26,11 @@ export class TransactionListComponent implements OnInit {
 
   calculateBalance() {
     this.balance = this.transactions.reduce((acc, transaction) => {
-      const amount = transaction.amount ?? 0;
+      const amount = Number(transaction.amount) || 0; 
       return transaction.type === 'income' ? acc + amount : acc - amount;
     }, 0);
   }
+  
 
   onDelete(id: string) {
       this.transactionService.deleteTransaction(id).subscribe(() => {

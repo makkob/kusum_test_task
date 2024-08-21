@@ -1,3 +1,11 @@
+<div class="balance">
+  <mat-card>
+    <mat-card-title>
+      Current Balance: {{ balance | currency }}
+    </mat-card-title>
+  </mat-card>
+</div>
+
 <div *ngFor="let transaction of transactions">
   <mat-card>
     <mat-card-title
