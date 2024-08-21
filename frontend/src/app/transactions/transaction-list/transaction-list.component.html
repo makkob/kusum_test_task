@@ -1,0 +1,21 @@
+<div *ngFor="let transaction of transactions">
+  <mat-card>
+    <mat-card-title
+      >{{ transaction.type | titlecase }}:
+      {{ transaction.amount | currency }}</mat-card-title
+    >
+    <mat-card-content>
+      <p>Category: {{ transaction.category }}</p>
+      <p>Date: {{ transaction.date | date : "shortDate" }}</p>
+    </mat-card-content>
+    <button 
+  mat-button 
+  color="warn" 
+  (click)="transaction.id ? onDelete(transaction.id) : null"
+  [disabled]="!transaction.id"
+>
+  Delete
+</button>
+
+  </mat-card>
+</div>
